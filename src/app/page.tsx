@@ -2,7 +2,7 @@
 'use client';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { Terminal, Trophy, Target, Flag } from 'lucide-react';
+import { Terminal} from 'lucide-react';
 
 // Import our custom components
 import MatrixRain from '../components/MatrixRain';
@@ -87,7 +87,7 @@ export default function Home() {
             <h2 className="text-2xl font-mono mb-6 text-white">About Us</h2>
             <div className="bg-gray-900 p-6 rounded-lg font-mono">
               <p className="mb-2">
-              Started around February 2024, inspired by PPP[Plaid Parliament of Pwning] dominating DEF CON. Fast forward 10 months, and we’ve climbed to rank #7 in India and 100+ CTFs under the belt. We aspire to become a stronghold in the International CTF community. That said, enough stalking come join our Discord to have a chat. We'd love to hear from you. Finding the Discord invite is the first challenge you must face before meeting us HAHA.
+              Started around February 2024, inspired by PPP[Plaid Parliament of Pwning] dominating DEF CON. Fast forward 10 months, and we&apos;ve climbed to rank #7 in India and 100+ CTFs under the belt. We aspire to become a stronghold in the International CTF community. That said, enough stalking come join our Discord to have a chat. We&apos;d love to hear from you. Finding the Discord invite is the first challenge you must face before meeting us HAHA.
               </p>
             </div>
           </div>

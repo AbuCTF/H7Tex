@@ -12,7 +12,7 @@ interface CTFEvent {
 
 
 
-const parseEvents = (data: string): CTFEvent[] => {
+const parseEvents = (): CTFEvent[] => {
   return [
     {
       name: "World Wide CTF 2024",
