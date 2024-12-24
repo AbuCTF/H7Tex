@@ -41,7 +41,7 @@ const parseEvents = (): CTFEvent[] => {
 
 export default function CTFTimeline() {
   const [selectedEvent, setSelectedEvent] = useState<CTFEvent | null>(null);
-  const events = parseEvents("");
+  const events = parseEvents();
 
   return (
     <section className="py-12 relative">
