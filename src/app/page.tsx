@@ -8,6 +8,10 @@ import { Terminal} from 'lucide-react';
 import MatrixRain from '../components/MatrixRain';
 import CTFTimeline from '../components/CTFTimeline';
 import Achievements from '../components/Achievements';
+<<<<<<< HEAD
+=======
+import Navbar from '@/components/Navbar';
+>>>>>>> c1c113d (Completed the website as promised)
 
 // Define team members with their roles
 const members = [
@@ -49,11 +53,16 @@ export default function Home() {
       <MatrixRain />
       
       <Head>
+<<<<<<< HEAD
         <title>H7Tex</title>
+=======
+        <title >H7Tex</title>
+>>>>>>> c1c113d (Completed the website as promised)
         <meta name="description" content="H7Tex - Upcoming CTF Guild" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+<<<<<<< HEAD
       <nav className="border-b border-green-800 p-4 relative z-10">
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-2">
@@ -69,12 +78,21 @@ export default function Home() {
           </div>
         </div>
       </nav>
+=======
+
+      <Navbar/>
+>>>>>>> c1c113d (Completed the website as promised)
 
       <main className="container mx-auto px-4 py-16 relative z-10">
         {/* Hero Section */}
         <div className="text-center mb-20">
+<<<<<<< HEAD
           <h1 className="text-4xl md:text-6xl font-bold font-mono mb-6">
             <span className="text-white">H7</span>Tex
+=======
+          <h1 className="text-4xl md:text-6xl font-bold font-mono mb-6 mt-10">
+            <span className="text-white ">H7</span>Tex
+>>>>>>> c1c113d (Completed the website as promised)
           </h1>
           <div className="h-8">
             <p className="text-xl font-mono">{typedText}</p>
