@@ -2,10 +2,9 @@
 'use client';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { Terminal} from 'lucide-react';
+import { Terminal } from 'lucide-react';
 
 // Import our custom components
-import MatrixRain from '../components/MatrixRain';
 import CTFTimeline from '../components/CTFTimeline';
 import Achievements from '../components/Achievements';
 
@@ -17,7 +16,7 @@ const members = [
   { name: 'MrGhost', role: 'Member' },
   { name: 'Rohmat', role: 'Member' },
   { name: 'SHL', role: 'Member' },
-  { name: 'I Think DFIRently', role: 'Member' },
+  { name: 'Nhoktiger12', role: 'Member' },
   { name: 'Josh', role: 'Member' },
   { name: 'Cook1e', role: 'Member' },
   { name: 'Owatron', role: 'Member' }
@@ -27,7 +26,7 @@ export default function Home() {
   // State for the typing animation effect
   const [typedText, setTypedText] = useState('');
   const textToType = 'We Learn. We Hack. We Dominate.';
-  
+
   // Typing animation effect
   useEffect(() => {
     let currentIndex = 0;
@@ -39,15 +38,12 @@ export default function Home() {
         clearInterval(intervalId);
       }
     }, 100);
-    
+
     return () => clearInterval(intervalId);
   }, []);
 
   return (
     <div className="min-h-screen bg-black text-green-500">
-      {/* Add Matrix Rain effect as background */}
-      <MatrixRain />
-      
       <Head>
         <title>H7Tex</title>
         <meta name="description" content="H7Tex - Upcoming CTF Guild" />
@@ -108,9 +104,9 @@ export default function Home() {
           <h2 className="text-2xl font-mono mb-6 text-white">Our Team</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {members.map((member) => (
-              <div 
+              <div
                 key={member.name}
-                className="bg-gray-900 p-6 rounded-lg font-mono hover:bg-gray-800 
+                className="bg-gray-900 p-6 rounded-lg font-mono hover:bg-gray-800
                          transition-colors duration-300"
               >
                 <h3 className="text-xl mb-2">{member.name}</h3>
@@ -122,9 +118,9 @@ export default function Home() {
 
         {/* CTFTime Link Section */}
         <section className="text-center">
-          <a 
+          <a
             href="https://ctftime.org/team/281844"
-            className="inline-block bg-green-500 text-black font-mono py-3 px-6 
+            className="inline-block bg-green-500 text-black font-mono py-3 px-6
                      rounded-lg hover:bg-green-400 transition-colors duration-300"
           >
             View Us on CTFTime
