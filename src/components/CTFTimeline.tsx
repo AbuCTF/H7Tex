@@ -14,25 +14,25 @@ const parseEvents = (): CTFEvent[] => {
   return [
     {
       name: "World Wide CTF 2024",
-      points: 1578.0000,
+      points: 1578.0,
       ratingPoints: 5.085,
       place: 37,
-      date: "2024-11"
+      date: "2024-11",
     },
     {
       name: "OSCTF",
-      points: 7310.0000,
-      ratingPoints: 17.740,
+      points: 7310.0,
+      ratingPoints: 17.74,
       place: 9,
-      date: "2024-07"
+      date: "2024-07",
     },
     {
       name: "Z3R0 D4Y CTF",
-      points: 3930.0000,
+      points: 3930.0,
       ratingPoints: 32.839,
       place: 3,
-      date: "2024-10"
-    }
+      date: "2024-10",
+    },
   ];
 };
 
@@ -52,15 +52,13 @@ export default function CTFTimeline() {
           {events.map((event, index) => (
             <div
               key={event.name}
-              className={`
-                relative mb-8 md:mb-12 pl-12
-                md:pl-0
-                ${index % 2 === 0 
-                  ? 'md:text-right md:pr-8 md:ml-0 md:mr-[50%]' 
-                  : 'md:text-left md:pl-8 md:ml-[50%] md:mr-0'}
-              `}
+              className={`relative mb-8 md:mb-12 pl-12 md:pl-0 ${
+                index % 2 === 0
+                  ? 'md:text-right md:pr-8 md:ml-0 md:mr-[50%]'
+                  : 'md:text-left md:pl-8 md:ml-[50%] md:mr-0'
+              }`}
             >
-              <div 
+              <div
                 className="bg-gray-900 p-4 rounded-lg hover:bg-gray-800 transition-colors cursor-pointer"
                 onClick={() => setSelectedEvent(event)}
               >
@@ -71,7 +69,7 @@ export default function CTFTimeline() {
 
               {/* Timeline dot - desktop only */}
               <div className="absolute w-3 h-3 bg-green-500 rounded-full top-1/2 -translate-y-1/2 left-4 md:left-1/2 md:-translate-x-1/2 hidden md:block" />
-              
+
               {/* Timeline dot - mobile only */}
               <div className="absolute w-2 h-2 bg-green-500 rounded-full top-1/2 -translate-y-1/2 left-4 md:hidden" />
             </div>
@@ -85,7 +83,7 @@ export default function CTFTimeline() {
           <div className="bg-gray-900 p-6 rounded-lg max-w-md w-full">
             <h3 className="text-xl font-mono text-green-400 mb-4">{selectedEvent.name}</h3>
             <p className="text-gray-300">Place: #{selectedEvent.place}</p>
-            <p className="text-gray-300">Points: {event.points}</p>
+            <p className="text-gray-300">Points: {selectedEvent.points}</p>
             <p className="text-gray-300">Rating Points: {selectedEvent.ratingPoints}</p>
             <button
               onClick={() => setSelectedEvent(null)}
