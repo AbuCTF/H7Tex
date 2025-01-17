@@ -1,9 +1,11 @@
-// components/InceptionTimer.tsx
 'use client';
+
 import { useEffect, useState } from 'react';
 
 const InceptionTimer = () => {
   const [timeSinceInception, setTimeSinceInception] = useState('');
+  // Move BEGIN_DATE inside component to avoid ESLint warning
+  // or use useMemo if you want to memoize it
   const BEGIN_DATE = new Date('2024-03-01T00:00:00').valueOf();
 
   useEffect(() => {
@@ -14,10 +16,10 @@ const InceptionTimer = () => {
     };
 
     const intervalId = setInterval(updateTimer, 10);
-    updateTimer();
+    updateTimer(); // Initial update
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, [BEGIN_DATE]); // Add BEGIN_DATE to dependency array
 
   return (
     <div className="text-green-500 font-mono text-xl font-bold text-center mb-8">

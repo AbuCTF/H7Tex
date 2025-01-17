@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 
 interface Particle {
   x: number;
@@ -32,7 +32,7 @@ const VisualEffects = () => {
   const INTERACTION_RADIUS = 100;
   const BASE_PARTICLE_SPEED = 0.5;
 
-  const createParticle = (x?: number, y?: number): Particle => ({
+  const createParticle = useCallback((x?: number, y?: number): Particle => ({
     x: x ?? Math.random() * window.innerWidth,
     y: y ?? Math.random() * window.innerHeight,
     dx: (Math.random() - 0.5) * BASE_PARTICLE_SPEED,
@@ -41,7 +41,7 @@ const VisualEffects = () => {
     color: `hsl(${Math.random() * 60 + 100}, 100%, 50%)`,
     alpha: Math.random() * 0.5 + 0.5,
     rotation: Math.random() * Math.PI * 2
-  });
+  }), []);
 
   const initializeCanvas = (canvas: HTMLCanvasElement) => {
     const ctx = canvas.getContext('2d')!;
@@ -49,14 +49,16 @@ const VisualEffects = () => {
     return ctx;
   };
 
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     if (!canvasRef.current) return;
     canvasRef.current.width = window.innerWidth;
     canvasRef.current.height = window.innerHeight;
     
-    // Reinitialize particles within bounds
-    particlesRef.current = Array.from({ length: PARTICLE_COUNT }, () => createParticle());
-  };
+    particlesRef.current = Array.from(
+      { length: PARTICLE_COUNT }, 
+      () => createParticle()
+    );
+  }, [createParticle]);
 
   const updateParticles = (ctx: CanvasRenderingContext2D) => {
     const time = performance.now() * 0.001;
@@ -135,7 +137,7 @@ const VisualEffects = () => {
     }
   };
 
-  const animate = () => {
+  const animate = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -147,13 +149,13 @@ const VisualEffects = () => {
     updateMouseTrail(ctx);
 
     frameRef.current = requestAnimationFrame(animate);
-  };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = initializeCanvas(canvas);
+    initializeCanvas(canvas);
     handleResize();
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -178,7 +180,7 @@ const VisualEffects = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       cancelAnimationFrame(frameRef.current);
     };
-  }, []);
+  }, [handleResize, animate]);
 
   return (
     <canvas
