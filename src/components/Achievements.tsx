@@ -38,15 +38,15 @@ export default function Achievements() {
   return (
     <section className="py-12">
       <h2 className="text-2xl font-mono mb-8 text-white text-center">Achievements</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 perspective-1000">
         {achievements.map((achievement, index) => (
           <div
             key={achievement.title}
-            className="relative bg-gray-900 p-6 rounded-lg transition-transform duration-300 transform hover:scale-105"
+            className="relative float-card"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <div className="flex flex-col items-center text-center">
+            <div className="bg-gray-900 p-6 rounded-lg h-full flex flex-col items-center text-center transform transition-transform duration-300">
               <div className="mb-4">
                 {achievement.icon}
               </div>

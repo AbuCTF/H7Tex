@@ -7,6 +7,10 @@ import { Terminal } from 'lucide-react';
 // Import our custom components
 import CTFTimeline from '../components/CTFTimeline';
 import Achievements from '../components/Achievements';
+import VisualEffects from '../components/VisualEffects';
+import InceptionTimer from '../components/InceptionTimer';
+import TeamMember from '../components/TeamMember';
+import AboutText from '../components/AboutText';
 
 // Define team members with their roles
 const members = [
@@ -44,6 +48,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-black text-green-500">
+      <VisualEffects />
       <Head>
         <title>H7Tex</title>
         <meta name="description" content="H7Tex - Upcoming CTF Guild" />
@@ -56,41 +61,56 @@ export default function Home() {
             <Terminal size={24} />
             <span className="text-xl font-mono">H7Tex</span>
           </div>
-          <div className="space-x-6 font-mono">
+          <div className="hidden md:flex space-x-6 font-mono">
             <a href="#about" className="hover:text-white">About</a>
             <a href="#achievements" className="hover:text-white">Achievements</a>
             <a href="#timeline" className="hover:text-white">Timeline</a>
             <a href="#team" className="hover:text-white">Team</a>
             <a href="https://ctftime.org/team/281844" className="hover:text-white">CTFTime</a>
           </div>
+          {/* Mobile menu button */}
+          <button className="md:hidden text-green-500">
+            <Terminal size={24} />
+          </button>
+        </div>
+        {/* Mobile menu (hidden by default) */}
+        <div className="md:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <a href="#about" className="block px-3 py-2 hover:text-white">About</a>
+            <a href="#achievements" className="block px-3 py-2 hover:text-white">Achievements</a>
+            <a href="#timeline" className="block px-3 py-2 hover:text-white">Timeline</a>
+            <a href="#team" className="block px-3 py-2 hover:text-white">Team</a>
+            <a href="https://ctftime.org/team/281844" className="block px-3 py-2 hover:text-white">CTFTime</a>
+          </div>
         </div>
       </nav>
 
-      <main className="container mx-auto px-4 py-16 relative z-10">
+      <main className="container mx-auto px-4 py-8 md:py-16 relative z-10">
         {/* Hero Section */}
-        <div className="text-center mb-20">
-          <h1 className="text-4xl md:text-6xl font-bold font-mono mb-6">
+        <div className="text-center mb-12 md:mb-20">
+          <h1 className="text-3xl md:text-6xl font-bold font-mono mb-4 md:mb-6">
             <span className="text-white">H7</span>Tex
           </h1>
           <div className="h-8">
-            <p className="text-xl font-mono">{typedText}</p>
+            <p className="text-lg md:text-xl font-mono">{typedText}</p>
           </div>
+          <InceptionTimer />
         </div>
 
         {/* About Section */}
-        <section id="about" className="mb-20">
+        <section id="about" className="mb-12 md:mb-20">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-2xl font-mono mb-6 text-white">About Us</h2>
-            <div className="bg-gray-900 p-6 rounded-lg font-mono">
-              <p className="mb-2">
-              Started around February 2024, inspired by PPP[Plaid Parliament of Pwning] dominating DEF CON. Fast forward 10 months, and we&apos;ve climbed to rank #7 in India and 100+ CTFs under the belt. We aspire to become a stronghold in the International CTF community. That said, enough stalking come join our Discord to have a chat. We&apos;d love to hear from you. Finding the Discord invite is the first challenge you must face before meeting us HAHA.
-              </p>
+            <h2 className="text-xl md:text-2xl font-mono mb-4 md:mb-6 text-white">
+              About Us
+            </h2>
+            <div className="bg-gray-900 p-4 md:p-6 rounded-lg">
+              <AboutText />
             </div>
           </div>
         </section>
 
         {/* Achievements Section */}
-        <section id="achievements" className="mb-20">
+        <section id="achievements" className="mb-12 md:mb-20">
           <Achievements />
         </section>
 
@@ -100,18 +120,15 @@ export default function Home() {
         </section>
 
         {/* Team Section */}
-        <section id="team" className="mb-20">
-          <h2 className="text-2xl font-mono mb-6 text-white">Our Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <section id="team" className="mb-12 md:mb-20">
+          <h2 className="text-xl md:text-2xl font-mono mb-4 md:mb-6 text-white">Our Team</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {members.map((member) => (
-              <div
+              <TeamMember
                 key={member.name}
-                className="bg-gray-900 p-6 rounded-lg font-mono hover:bg-gray-800
-                         transition-colors duration-300"
-              >
-                <h3 className="text-xl mb-2">{member.name}</h3>
-                <p className="text-green-400">{member.role}</p>
-              </div>
+                name={member.name}
+                role={member.role}
+              />
             ))}
           </div>
         </section>
@@ -128,9 +145,9 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t border-green-800 mt-20 py-8 relative z-10">
-        <div className="container mx-auto px-4 text-center font-mono">
-          <p>&copy; 2024 H7Tex. All rights reserved.</p>
+      <footer className="border-t border-green-800 mt-12 md:mt-20 py-6 md:py-8 relative z-10">
+        <div className="container mx-auto px-4 text-center font-mono text-sm md:text-base">
+          <p>&copy; 2025 H7Tex. All rights reserved.</p>
         </div>
       </footer>
     </div>
