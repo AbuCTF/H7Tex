@@ -23,4 +23,4 @@ const TeamMember = ({ name, role }: TeamMemberProps) => {
   );
 };
 
-export default TeamMember; // Changed to default export
+export default TeamMember;

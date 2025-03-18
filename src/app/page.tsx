@@ -1,10 +1,8 @@
-// pages/page.tsx
 'use client';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { Terminal } from 'lucide-react';
 
-// Import our custom components
 import CTFTimeline from '../components/CTFTimeline';
 import Achievements from '../components/Achievements';
 import VisualEffects from '../components/VisualEffects';
@@ -20,18 +18,19 @@ const members = [
   { name: 'MrGhost', role: 'Member' },
   { name: 'Rohmat', role: 'Member' },
   { name: 'SHL', role: 'Member' },
-  { name: 'Nhoktiger12', role: 'Member' },
+  { name: 'NTiger', role: 'Member' },
+  { name: 'ExposedAPI', role: 'Member' },
+  { name: 'Keshav', role: 'Member' },
   { name: 'Josh', role: 'Member' },
   { name: 'Cook1e', role: 'Member' },
   { name: 'Owatron', role: 'Member' }
 ];
 
 export default function Home() {
-  // State for the typing animation effect
   const [typedText, setTypedText] = useState('');
   const textToType = 'We Learn. We Hack. We Dominate.';
 
-  // Typing animation effect
+  // Typing Animation
   useEffect(() => {
     let currentIndex = 0;
     const intervalId = setInterval(() => {

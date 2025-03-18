@@ -17,18 +17,23 @@ const achievements: Achievement[] = [
   },
   {
     icon: <Target className="w-8 h-8 text-green-400" />,
-    title: "100+ CTFs",
-    description: "Participated in over 100 CTF competitions within 10 months"
+    title: "200+ CTFs",
+    description: "Competed in over 200 CTFs in just one year"
   },
   {
     icon: <Flag className="w-8 h-8 text-red-400" />,
     title: "Conducted H7CTF",
-    description: "With over 2000+ participants from all over the globe"
+    description: "Hosted a global CTF with 2000+ participants"
   },
   {
     icon: <Medal className="w-8 h-8 text-blue-400" />,
-    title: "Cyber Trail 2024 Winner",
-    description: "Victory at Cyber Trail 2024 securing 40k INR"
+    title: "CyberTrail 2024 Winner",
+    description: "Secured 1st place, winning 40k INR"
+  },
+  {
+    icon: <Medal className="w-8 h-8 text-blue-400" />,
+    title: "VishwaCTF Finalists",
+    description: "Finished 2nd place, earning 25k INR"
   },
 ];
 
